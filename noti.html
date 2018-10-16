@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notification</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top:40;
+  left: 15px;
+  border:none;
+  z-index: 9;
+}
+.list{
+  background-color: white;
+  border: none;
+  color:blue;
+  cursor:pointer;
+}
+#message{
+  padding-left: 295px;
+  border-radius: 5px;
+}
+
+</style>
+</head>
+<body>
+<button class="open-button" onclick="openForm()">Notification</button>
+
+
+  <div class="container col-md-12">
+    <div class="row">
+      <div  class="form-popup" id="myForm">
+<div class="card" style="width:250px; position:fixed;">
+    <center><div id="top" class="card-header col-md-12">
+    Notifications
+  </div>
+    <div class="card-body">
+    <button class="list"  onclick="students()">students</button><hr>
+    <button class="list" onclick="instructors()">Instructor</button><hr>
+    <button class="list" onclick="Moderator()">Moderator</button>
+  </div></center>
+  </div>
+</div>
+  <div class="card col-md-10" id="message" style="background:none; border:none"></div>
+  <div class="card col-md-2" style="height:270px;" id="extra">Extra card</div>
+  </div>
+</div>
+
+<script>
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+function students(){
+  document.getElementById("message").innerHTML='<object style="height:350px; width:800px" type="text/html" data="stud.html" ></object>'
+}
+function instructors(){
+  document.getElementById("message").innerHTML='<object style="height:350px; width:800px" type="text/html" data="inst.html" ></object>'
+}
+function Moderator(){
+  document.getElementById("message").innerHTML='<object style="height:350px; width:800px" type="text/html" data="mod.html" ></object>'
+}
+</script>
+
+</body>
+</html>
